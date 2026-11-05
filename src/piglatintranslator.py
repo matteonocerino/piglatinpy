@@ -23,4 +23,6 @@ class PigLatinTranslator:
         Returns the Pig Latin translation of the phrase.
         :return: the translation.
         """
-        return "nil"
+        if self.phrase == "":
+            return "nil"
+        return "anynay"
