@@ -26,8 +26,9 @@ def translate_word(word):
     return second_part + first_part + "ay"
 
 def translate_punctuated_word(word):
-    if word[-1] in "!?":
-        return translate_word(word[:-1]) + word[-1]
+    last_character = word[-1]
+    if last_character in ".,;:?!()":
+        return translate_word(word[:-1]) + last_character
     return translate_word(word)
 
 def translate_words(words, separator):
