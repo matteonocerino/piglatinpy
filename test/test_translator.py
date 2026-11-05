@@ -67,3 +67,8 @@ class TestPigLatinTranslator(TestCase):
         translator = PigLatinTranslator("hello world!")
         translation = translator.translate()
         self.assertEqual("ellohay orldway!", translation)
+
+    def test_translate_phrase_ending_with_question_mark(self):
+        translator = PigLatinTranslator("hello world?")
+        translation = translator.translate()
+        self.assertEqual("ellohay orldway?", translation)
