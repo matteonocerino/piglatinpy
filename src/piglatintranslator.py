@@ -23,3 +23,4 @@ class PigLatinTranslator:
         Returns the Pig Latin translation of the phrase.
         :return: the translation.
         """
+        return "nil"
