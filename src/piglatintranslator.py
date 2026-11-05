@@ -50,4 +50,14 @@ class PigLatinTranslator:
         if self.phrase == "":
             return "nil"
 
+        if " " in self.phrase:
+            words = self.phrase.split()
+
+            translated_words = []
+
+            for word in words:
+                translated_words.append(translate_word(word))
+
+            return " ".join(translated_words)
+
         return translate_word(self.phrase)
