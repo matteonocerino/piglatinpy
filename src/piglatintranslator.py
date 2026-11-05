@@ -1,5 +1,15 @@
 from src.error import PigLatinError
 
+def first_index_of_vowel(word):
+    found = False
+    i = 0
+    while not found and i < len(word):
+        letter = word[i]
+        if letter in "aeiou":
+            found = True
+        else:
+            i += 1
+    return i
 
 class PigLatinTranslator:
 
@@ -34,6 +44,8 @@ class PigLatinTranslator:
             if last_letter in "y":
                 return self.phrase + "nay"
             return self.phrase + "ay"
-        substring = self.phrase[1:]
-        return substring + first_letter + "ay"
 
+        i = first_index_of_vowel(self.phrase)
+        first_part = self.phrase[0:i]
+        second_part = self.phrase[i:]
+        return second_part + first_part + "ay"
