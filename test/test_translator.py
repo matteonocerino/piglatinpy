@@ -1,4 +1,5 @@
 from unittest import TestCase
+from src.piglatintranslator import PigLatinTranslator
 
 class TestPigLatinTranslator(TestCase):
 
