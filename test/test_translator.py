@@ -52,3 +52,8 @@ class TestPigLatinTranslator(TestCase):
         translator = PigLatinTranslator("street")
         translation = translator.translate()
         self.assertEqual("eetstray", translation)
+
+    def test_translate_phrase_containing_two_words(self):
+        translator = PigLatinTranslator("hello world")
+        translation = translator.translate()
+        self.assertEqual("ellohay orldway", translation)
