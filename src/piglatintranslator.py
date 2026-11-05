@@ -29,6 +29,8 @@ def translate_punctuated_word(word):
     last_character = word[-1]
     if last_character in ".,;:?!()":
         return translate_word(word[:-1]) + last_character
+    if not last_character.isalpha():
+        raise PigLatinError()
     return translate_word(word)
 
 def translate_words(words, separator):
