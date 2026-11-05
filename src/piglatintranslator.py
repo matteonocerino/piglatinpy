@@ -25,6 +25,17 @@ def translate_word(word):
     second_part = word[i:]
     return second_part + first_part + "ay"
 
+def translate_punctuated_word(word):
+    if word[-1] == "!":
+        return translate_word(word[:-1]) + "!"
+    return translate_word(word)
+
+def translate_words(words, separator):
+    translated_words = []
+    for word in words:
+        translated_words.append(translate_punctuated_word(word))
+    return separator.join(translated_words)
+
 class PigLatinTranslator:
 
     def __init__(self, phrase: str):
@@ -51,23 +62,9 @@ class PigLatinTranslator:
             return "nil"
 
         if "-" in self.phrase:
-            words = self.phrase.split("-")
-
-            translated_words = []
-
-            for word in words:
-                translated_words.append(translate_word(word))
-
-            return "-".join(translated_words)
+            return translate_words(self.phrase.split("-"), "-")
 
         if " " in self.phrase:
-            words = self.phrase.split()
+            return translate_words(self.phrase.split(), " ")
 
-            translated_words = []
-
-            for word in words:
-                translated_words.append(translate_word(word))
-
-            return " ".join(translated_words)
-
-        return translate_word(self.phrase)
+        return translate_punctuated_word(self.phrase)
