@@ -67,11 +67,8 @@ class PigLatinTranslator:
         """
         if self.phrase == "":
             return "nil"
-
         if "-" in self.phrase:
             return translate_words(self.phrase.split("-"), "-")
-
         if " " in self.phrase:
             return translate_words(self.phrase.split(), " ")
-
         return translate_punctuated_word(self.phrase)
