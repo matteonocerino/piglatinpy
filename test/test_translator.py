@@ -62,3 +62,8 @@ class TestPigLatinTranslator(TestCase):
         translator = PigLatinTranslator("well-being")
         translation = translator.translate()
         self.assertEqual("ellway-eingbay", translation)
+
+    def test_translate_phrase_ending_with_exclamation_mark(self):
+        translator = PigLatinTranslator("hello world!")
+        translation = translator.translate()
+        self.assertEqual("ellohay orldway!", translation)
