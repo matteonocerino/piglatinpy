@@ -11,6 +11,20 @@ def first_index_of_vowel(word):
             i += 1
     return i
 
+def translate_word(word):
+    first_letter = word[0]
+    if first_letter in "aeiou":
+        last_letter = word[-1]
+        if last_letter in "aeiou":
+            return word + "yay"
+        if last_letter == "y":
+            return word + "nay"
+        return word + "ay"
+    i = first_index_of_vowel(word)
+    first_part = word[:i]
+    second_part = word[i:]
+    return second_part + first_part + "ay"
+
 class PigLatinTranslator:
 
     def __init__(self, phrase: str):
@@ -36,16 +50,4 @@ class PigLatinTranslator:
         if self.phrase == "":
             return "nil"
 
-        first_letter = self.phrase[0]
-        if first_letter in "aeiou":
-            last_letter = self.phrase[len(self.phrase) - 1]
-            if last_letter in "aeiou":
-                return self.phrase + "yay"
-            if last_letter in "y":
-                return self.phrase + "nay"
-            return self.phrase + "ay"
-
-        i = first_index_of_vowel(self.phrase)
-        first_part = self.phrase[0:i]
-        second_part = self.phrase[i:]
-        return second_part + first_part + "ay"
+        return translate_word(self.phrase)

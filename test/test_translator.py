@@ -47,3 +47,8 @@ class TestPigLatinTranslator(TestCase):
         translator = PigLatinTranslator("known")
         translation = translator.translate()
         self.assertEqual("ownknay", translation)
+
+    def test_translate_word_starting_three_consonants(self):
+        translator = PigLatinTranslator("street")
+        translation = translator.translate()
+        self.assertEqual("eetstray", translation)
