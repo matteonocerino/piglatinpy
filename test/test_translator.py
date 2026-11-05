@@ -77,3 +77,8 @@ class TestPigLatinTranslator(TestCase):
     def test_translate_word_with_invalid_punctuation(self):
         translator = PigLatinTranslator("hello@")
         self.assertRaises(PigLatinError, translator.translate)
+
+    def test_translate_upper_case_word(self):
+        translator = PigLatinTranslator("APPLE")
+        translation = translator.translate()
+        self.assertEqual("APPLEYAY", translation)
