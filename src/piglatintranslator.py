@@ -14,6 +14,8 @@ def first_index_of_vowel(word):
 def translate_word(word):
     if word.isupper():
         return translate_word(word.lower()).upper()
+    if word.istitle():
+        return translate_word(word.lower()).capitalize()
     first_letter = word[0]
     if first_letter in "aeiou":
         last_letter = word[-1]
