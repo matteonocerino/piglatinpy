@@ -12,6 +12,8 @@ def first_index_of_vowel(word):
     return i
 
 def translate_word(word):
+    if not (word.islower() or word.isupper() or word.istitle()):
+        raise PigLatinError()
     if word.isupper():
         return translate_word(word.lower()).upper()
     if word.istitle():
